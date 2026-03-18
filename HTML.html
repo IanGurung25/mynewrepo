@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Demo – Ian Gurung Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Georgia', serif;
+      background: #faf9f6;
+      color: #1a1a1a;
+      line-height: 1.7;
+    }
+    header {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    header h1 { font-size: 2rem; letter-spacing: 2px; }
+    header p { color: #a0aec0; margin-top: 0.5rem; }
+    nav {
+      background: #16213e;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0.8rem;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: #f6ad55; }
+    main { max-width: 860px; margin: 2.5rem auto; padding: 0 1.5rem; }
+    section { margin-bottom: 3rem; }
+    h2 {
+      font-size: 1.4rem;
+      border-left: 4px solid #f6ad55;
+      padding-left: 0.8rem;
+      margin-bottom: 1rem;
+      color: #2d3748;
+    }
+    p { margin-bottom: 1rem; color: #4a5568; }
+    .tag-label {
+      display: inline-block;
+      background: #ebf8ff;
+      color: #2b6cb0;
+      border: 1px solid #bee3f8;
+      border-radius: 4px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.78rem;
+      font-family: monospace;
+      margin: 0.2rem;
+    }
+    /* Form */
+    form {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .form-group { margin-bottom: 1.2rem; }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 0.3rem;
+      color: #2d3748;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid #cbd5e0;
+      border-radius: 5px;
+      font-size: 0.95rem;
+      background: #f7fafc;
+      transition: border 0.2s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #f6ad55;
+      background: #fff;
+    }
+    button[type="submit"] {
+      background: #1a1a2e;
+      color: white;
+      padding: 0.6rem 1.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+    button[type="submit"]:hover { background: #f6ad55; color: #1a1a2e; }
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+    }
+    th {
+      background: #1a1a2e;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+    td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      color: #4a5568;
+      font-size: 0.9rem;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f7fafc; }
+    /* Semantic structure diagram */
+    .structure-box {
+      border: 2px dashed #cbd5e0;
+      border-radius: 6px;
+      padding: 1rem;
+      background: #fff;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #2d3748;
+      line-height: 2;
+    }
+    .indent-1 { padding-left: 1.5rem; }
+    .indent-2 { padding-left: 3rem; }
+    .indent-3 { padding-left: 4.5rem; }
+    .tag { color: #c05621; }
+    .attr { color: #276749; }
+    footer {
+      background: #1a1a2e;
+      color: #a0aec0;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER: identifies the top section of the page -->
+  <header>
+    <h1>HTML Fundamentals</h1>
+    <p>Demonstrating Semantic Structure, Forms &amp; Tables</p>
+  </header>
+
+  <!-- NAV: provides page navigation links -->
+  <nav>
+    <a href="#semantic">Semantic HTML</a>
+    <a href="#tags">Common Tags</a>
+    <a href="#form">Forms</a>
+    <a href="#table">Tables</a>
+  </nav>
+
+  <!-- MAIN: the primary content area -->
+  <main>
+
+    <!-- SECTION 1: Semantic HTML -->
+    <section id="semantic">
+      <h2>What Is Semantic HTML?</h2>
+      <p>
+        Semantic HTML uses tags that <strong>describe the meaning</strong> of the content, 
+        not just its appearance. This improves accessibility, SEO, and readability.
+        Instead of using <code>&lt;div&gt;</code> for everything, we use tags like 
+        <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, 
+        <code>&lt;article&gt;</code>, and <code>&lt;footer&gt;</code>.
+      </p>
+      <!-- Visual representation of this page's structure -->
+      <div class="structure-box">
+        <span class="tag">&lt;body&gt;</span><br>
+        <span class="indent-1 tag">&lt;header&gt;</span> <em>← site title &amp; branding</em><br>
+        <span class="indent-1 tag">&lt;nav&gt;</span> <em>← navigation links</em><br>
+        <span class="indent-1 tag">&lt;main&gt;</span><br>
+        <span class="indent-2 tag">&lt;section id=<span class="attr">"semantic"</span>&gt;</span> <em>← grouped content</em><br>
+        <span class="indent-3 tag">&lt;h2&gt;</span> <em>← sub-heading</em><br>
+        <span class="indent-3 tag">&lt;p&gt;</span> <em>← paragraph</em><br>
+        <span class="indent-2 tag">&lt;/section&gt;</span><br>
+        <span class="indent-1 tag">&lt;/main&gt;</span><br>
+        <span class="indent-1 tag">&lt;footer&gt;</span> <em>← copyright / contact</em><br>
+        <span class="tag">&lt;/body&gt;</span>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Common tags -->
+    <section id="tags">
+      <h2>Common HTML Tags</h2>
+      <p>Every tag has a purpose. Here are the most commonly used ones:</p>
+      <span class="tag-label">&lt;h1&gt; – &lt;h6&gt;</span>
+      <span class="tag-label">&lt;p&gt;</span>
+      <span class="tag-label">&lt;a href=""&gt;</span>
+      <span class="tag-label">&lt;img src=""&gt;</span>
+      <span class="tag-label">&lt;ul&gt; &lt;li&gt;</span>
+      <span class="tag-label">&lt;div&gt;</span>
+      <span class="tag-label">&lt;span&gt;</span>
+      <span class="tag-label">&lt;strong&gt;</span>
+      <span class="tag-label">&lt;em&gt;</span>
+      <span class="tag-label">&lt;form&gt;</span>
+      <span class="tag-label">&lt;input&gt;</span>
+      <span class="tag-label">&lt;table&gt;</span>
+      <span class="tag-label">&lt;section&gt;</span>
+      <span class="tag-label">&lt;article&gt;</span>
+    </section>
+
+    <!-- SECTION 3: HTML Form -->
+    <section id="form">
+      <h2>HTML Forms</h2>
+      <p>
+        Forms collect user input. Each <code>&lt;input&gt;</code> has a <code>type</code> 
+        attribute that controls what kind of data is accepted.
+      </p>
+      <!-- A form with multiple input types -->
+      <form onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full Name <em>(type="text")</em></label>
+          <input type="text" id="name" placeholder="e.g. Ian Gurung" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address <em>(type="email")</em></label>
+          <input type="email" id="email" placeholder="e.g. ian@email.com" required />
+        </div>
+        <div class="form-group">
+          <label for="dob">Date of Birth <em>(type="date")</em></label>
+          <input type="date" id="dob" />
+        </div>
+        <div class="form-group">
+          <label for="course">Course <em>(&lt;select&gt;)</em></label>
+          <select id="course">
+            <option value="">Select your course</option>
+            <option value="fsd">Full Stack Development</option>
+            <option value="ds">Data Science</option>
+            <option value="cyber">Cyber Security</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="bio">Short Bio <em>(&lt;textarea&gt;)</em></label>
+          <textarea id="bio" rows="3" placeholder="Tell us about yourself..."></textarea>
+        </div>
+        <button type="submit">Submit Form</button>
+        <p id="form-msg" style="margin-top:0.8rem; color: #276749; font-weight:bold;"></p>
+      </form>
+    </section>
+
+    <!-- SECTION 4: HTML Table -->
+    <section id="table">
+      <h2>HTML Tables</h2>
+      <p>
+        Tables use <code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, 
+        <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code> (row), 
+        <code>&lt;th&gt;</code> (header cell), and <code>&lt;td&gt;</code> (data cell).
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tag</th>
+            <th>Full Name</th>
+            <th>Purpose</th>
+            <th>Self-Closing?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>&lt;p&gt;</code></td>
+            <td>Paragraph</td>
+            <td>Block of text</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>&lt;img&gt;</code></td>
+            <td>Image</td>
+            <td>Embed an image</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>&lt;a&gt;</code></td>
+            <td>Anchor</td>
+            <td>Hyperlink</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td><code>&lt;br&gt;</code></td>
+            <td>Line Break</td>
+            <td>Forced line break</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td><code>&lt;input&gt;</code></td>
+            <td>Input</td>
+            <td>Form field</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: closing information -->
+  <footer>
+    <p>Ian Gurung &mdash; CET138 Full Stack Development Portfolio &mdash; HTML Demo</p>
+  </footer>
+
+  <script>
+    // Basic form submission handler
+    function handleSubmit(e) {
+      e.preventDefault(); // Stop page from reloading
+      const name = document.getElementById('name').value;
+      document.getElementById('form-msg').textContent =
+        `✅ Thanks, ${name}! Your form was submitted successfully.`;
+    }
+  </script>
+
+</body>
+</html>

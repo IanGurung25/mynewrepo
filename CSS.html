@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CSS Demo – Ian Gurung Portfolio</title>
+  <style>
+
+    /* =============================================
+       1. CSS VARIABLES (Custom Properties)
+       Define reusable values in :root
+    ============================================= */
+    :root {
+      --primary:    #0f4c75;
+      --accent:     #1b262c;
+      --highlight:  #bbe1fa;
+      --text:       #1c2833;
+      --muted:      #566573;
+      --bg:         #f0f4f8;
+      --white:      #ffffff;
+      --radius:     8px;
+      --transition: 0.3s ease;
+    }
+
+    /* =============================================
+       2. BOX MODEL & RESET
+       Every element: content + padding + border + margin
+    ============================================= */
+    * {
+      box-sizing: border-box; /* include padding/border in width */
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* =============================================
+       3. TYPOGRAPHY
+    ============================================= */
+    h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    h2 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--primary); }
+    h3 { font-size: 1rem; margin-bottom: 0.5rem; }
+    p  { color: var(--muted); margin-bottom: 0.8rem; font-size: 0.95rem; }
+
+    /* =============================================
+       4. LAYOUT HELPERS
+    ============================================= */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    section { padding: 3rem 0; }
+    .section-divider {
+      border: none;
+      border-top: 2px dashed #d0dde9;
+      margin: 0;
+    }
+
+    /* =============================================
+       5. HEADER — Background + Typography styling
+    ============================================= */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, #1b4f72 100%);
+      color: var(--white);
+      padding: 3rem 1.5rem;
+      text-align: center;
+    }
+    header p { color: var(--highlight); margin-top: 0.5rem; }
+
+    /* =============================================
+       6. NAVIGATION — Flexbox + Hover transitions
+    ============================================= */
+    nav {
+      background: var(--accent);
+      display: flex;          /* Flexbox: items in a row */
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.75rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: #aed6f1;
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      transition: background var(--transition), color var(--transition); /* Smooth hover */
+    }
+    nav a:hover {
+      background: var(--highlight);
+      color: var(--primary);
+    }
+
+    /* =============================================
+       7. THE BOX MODEL — Visual Demonstration
+    ============================================= */
+    .box-model-demo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      background: #d6eaf8;
+      border-radius: var(--radius);
+    }
+    .bm-margin   { background: #fad7a0; padding: 1.5rem; border-radius: 4px; }
+    .bm-border   { background: #a9cce3; padding: 1.2rem; border: 4px solid #2471a3; border-radius: 4px; }
+    .bm-padding  { background: #a9dfbf; padding: 1rem; border-radius: 4px; }
+    .bm-content  {
+      background: var(--white);
+      padding: 1rem 1.5rem;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .box-model-demo .label {
+      font-size: 0.7rem;
+      color: #555;
+      text-align: center;
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    /* =============================================
+       8. FLEXBOX DEMO
+    ============================================= */
+    .flex-demo {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background: #eaf4fb;
+      padding: 1.5rem;
+      border-radius: var(--radius);
+    }
+    .flex-item {
+      flex: 1;
+      min-width: 100px;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.2rem 0.5rem;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      font-weight: bold;
+      transition: transform var(--transition);
+    }
+    .flex-item:hover { transform: translateY(-4px); } /* Hover lift effect */
+    .flex-item.grow  { flex: 2; background: #117a8b; } /* flex-grow demonstration */
+
+    /* =============================================
+       9. CSS GRID DEMO
+    ============================================= */
+    .grid-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+      grid-template-rows: auto auto;
+      gap: 0.8rem;
+    }
+    .grid-item {
+      background: var(--white);
+      border: 2px solid #aed6f1;
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: var(--primary);
+      transition: background var(--transition);
+    }
+    .grid-item:hover { background: var(--highlight); }
+    .grid-span { grid-column: span 3; background: var(--primary); color: white; } /* spans full row */
+
+    /* =============================================
+       10. PSEUDO-CLASSES & TRANSITIONS
+    ============================================= */
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .btn {
+      padding: 0.6rem 1.4rem;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: bold;
+      transition: all var(--transition);
+    }
+    /* :hover pseudo-class changes styles on mouse over */
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-primary:hover { background: #0a3d62; transform: scale(1.05); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-outline:hover { background: var(--primary); color: white; }
+
+    .btn-animated {
+      background: #e74c3c;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    /* ::before pseudo-element creates decorative content */
+    .btn-animated::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: rgba(255,255,255,0.2);
+      transition: left 0.4s;
+    }
+    .btn-animated:hover::before { left: 100%; }
+
+    /* =============================================
+       11. CSS ANIMATIONS & KEYFRAMES
+    ============================================= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50%       { transform: scale(1.08); }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .anim-cards { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+    .anim-card {
+      flex: 1;
+      min-width: 140px;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      font-size: 0.82rem;
+      color: var(--primary);
+      font-weight: bold;
+    }
+    .anim-card .icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+    .card-fadein  { animation: fadeInUp 1s ease forwards; }
+    .card-pulse   { animation: pulse 1.5s ease-in-out infinite; }
+    .card-spin .icon { animation: spin 2s linear infinite; }
+
+    /* =============================================
+       12. CSS VARIABLES — Live Colour Switcher
+    ============================================= */
+    .colour-switcher {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .colour-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .colour-btn:hover { transform: scale(1.2); border-color: #333; }
+    #theme-preview {
+      margin-top: 1rem;
+      padding: 1.2rem;
+      border-radius: var(--radius);
+      font-weight: bold;
+      text-align: center;
+      transition: background 0.4s, color 0.4s;
+    }
+
+    /* =============================================
+       13. RESPONSIVE DESIGN — @media queries
+    ============================================= */
+    @media (max-width: 600px) {
+      .grid-demo { grid-template-columns: 1fr 1fr; }
+      .grid-span { grid-column: span 2; }
+    }
+
+    /* =============================================
+       14. FOOTER
+    ============================================= */
+    footer {
+      background: var(--accent);
+      color: #aed6f1;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.82rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CSS Fundamentals</h1>
+    <p>Box Model · Flexbox · Grid · Animations · Pseudo-classes · Media Queries</p>
+  </header>
+
+  <nav>
+    <a href="#boxmodel">Box Model</a>
+    <a href="#flexbox">Flexbox</a>
+    <a href="#grid">Grid</a>
+    <a href="#pseudoclasses">Pseudo-classes</a>
+    <a href="#animations">Animations</a>
+    <a href="#variables">CSS Variables</a>
+  </nav>
+
+  <div class="container">
+
+    <!-- BOX MODEL -->
+    <section id="boxmodel">
+      <h2>1. The Box Model</h2>
+      <p>
+        Every HTML element is a rectangular box made of 4 layers:
+        <strong>Content</strong> → <strong>Padding</strong> → <strong>Border</strong> → <strong>Margin</strong>.
+        Understanding this is key to controlling layout and spacing.
+      </p>
+      <div class="box-model-demo">
+        <div class="bm-margin">
+          <span class="label">margin (orange)</span>
+          <div class="bm-border">
+            <span class="label">border (blue)</span>
+            <div class="bm-padding">
+              <span class="label">padding (green)</span>
+              <div class="bm-content">Content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr class="section-divider"/>
+
+    <!-- FLEXBOX -->
+    <section id="flexbox">
+      <h2>2. Flexbox Layout</h2>
+      <p>
+        Flexbox arranges items in a row or column. The <strong>grow</strong> item below
+        uses <code>flex: 2</code>, making it twice as wide as its siblings.
+        Hover over items to see the transform effect.
+      </p>
+      <div class="flex-demo">
+        <div class="flex-item">Item A<br><small>flex: 1</small></div>
+        <div class="flex-item grow">Item B<br><small>flex: 2 (grows more)</small></div>
+        <div class="flex-item">Item C<br><small>flex: 1</small></div>
+        <div class="flex-item">Item D<br><small>flex: 1</small></div>
+      </div>
+    </section>
+    <hr class="section-divider"/>
+
+    <!-- CSS GRID -->
+    <section id="grid">
+      <h2>3. CSS Grid</h2>
+      <p>
+        Grid gives you 2D control (rows AND columns). 
+        <code>grid-template-columns: repeat(3, 1fr)</code> creates 3 equal columns.
+        The last item uses <code>grid-column: span 3</code> to stretch across all columns.
+      </p>
+      <div class="grid-demo">
+        <div class="grid-item">Cell 1</div>
+        <div class="grid-item">Cell 2</div>
+        <div class="grid-item">Cell 3</div>
+        <div class="grid-item">Cell 4</div>
+        <div class="grid-item">Cell 5</div>
+        <div class="grid-item">Cell 6</div>
+        <div class="grid-item grid-span">Spans Full Row → grid-column: span 3</div>
+      </div>
+    </section>
+    <hr class="section-divider"/>
+
+    <!-- PSEUDO-CLASSES & TRANSITIONS -->
+    <section id="pseudoclasses">
+      <h2>4. Pseudo-classes & Transitions</h2>
+      <p>
+        <code>:hover</code> applies styles when the user hovers over an element.
+        <code>transition</code> makes the style change animate smoothly over time.
+        <code>::before</code> inserts a decorative element before the content.
+      </p>
+      <div class="btn-row">
+        <button class="btn btn-primary">:hover → darken + scale</button>
+        <button class="btn btn-outline">:hover → fill background</button>
+        <button class="btn btn-animated">:hover → slide shimmer (::before)</button>
+      </div>
+    </section>
+    <hr class="section-divider"/>
+
+    <!-- ANIMATIONS -->
+    <section id="animations">
+      <h2>5. CSS Animations & @keyframes</h2>
+      <p>
+        <code>@keyframes</code> defines the steps of an animation.
+        <code>animation:</code> applies it to an element with duration, timing, and repeat count.
+      </p>
+      <div class="anim-cards">
+        <div class="anim-card card-fadein">
+          <span class="icon">🎞️</span>
+          fadeInUp<br><small>animation-fill-mode: forwards</small>
+        </div>
+        <div class="anim-card card-pulse">
+          <span class="icon">💓</span>
+          pulse<br><small>animation: infinite</small>
+        </div>
+        <div class="anim-card card-spin">
+          <span class="icon">⚙️</span>
+          spin<br><small>animation: linear infinite</small>
+        </div>
+      </div>
+    </section>
+    <hr class="section-divider"/>
+
+    <!-- CSS VARIABLES -->
+    <section id="variables">
+      <h2>6. CSS Variables (Custom Properties)</h2>
+      <p>
+        Variables like <code>--primary: #0f4c75</code> are defined in <code>:root</code>
+        and reused everywhere. Change one value → everything updates. 
+        Click a colour below to see this in action.
+      </p>
+      <div class="colour-switcher">
+        <div class="colour-btn" style="background:#0f4c75" onclick="setTheme('#0f4c75','#fff','Navy Blue')"></div>
+        <div class="colour-btn" style="background:#1e8449" onclick="setTheme('#1e8449','#fff','Forest Green')"></div>
+        <div class="colour-btn" style="background:#7d3c98" onclick="setTheme('#7d3c98','#fff','Royal Purple')"></div>
+        <div class="colour-btn" style="background:#c0392b" onclick="setTheme('#c0392b','#fff','Crimson Red')"></div>
+        <div class="colour-btn" style="background:#f39c12" onclick="setTheme('#f39c12','#1c2833','Amber Gold')"></div>
+      </div>
+      <div id="theme-preview" style="background:#0f4c75; color:#fff;">
+        Theme: <span id="theme-name">Navy Blue</span> — CSS variable updated live!
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>Ian Gurung &mdash; CET138 Full Stack Development Portfolio &mdash; CSS Demo</p>
+  </footer>
+
+  <script>
+    // CSS Variables updated via JavaScript — demonstrates how CSS & JS interact
+    function setTheme(colour, textColour, name) {
+      const preview = document.getElementById('theme-preview');
+      preview.style.background = colour;
+      preview.style.color = textColour;
+      document.getElementById('theme-name').textContent = name;
+    }
+  </script>
+
+</body>
+</html>

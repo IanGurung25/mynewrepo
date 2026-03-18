@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bootstrap Demo – Ian Gurung Portfolio</title>
+  <!-- Bootstrap 5 CDN — no download needed, just link it! -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    /* Only minimal custom styles on top of Bootstrap */
+    body { background-color: #f8f9fa; }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      border-left: 4px solid #0d6efd;
+      padding-left: 0.75rem;
+      margin-bottom: 1rem;
+      color: #212529;
+    }
+    .demo-block {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+    }
+    .grid-highlight [class^="col"] {
+      background: #cfe2ff;
+      border: 1px solid #9ec5fe;
+      padding: 0.75rem;
+      text-align: center;
+      border-radius: 4px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      color: #084298;
+    }
+    footer { background: #212529; color: #adb5bd; }
+  </style>
+</head>
+<body>
+
+  <!--
+    BOOTSTRAP NAVBAR
+    - navbar-expand-lg: collapses into hamburger menu on small screens
+    - navbar-dark bg-dark: dark theme preset
+    - data-bs-toggle / data-bs-target: Bootstrap JS handles the toggle
+  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">⚡ Bootstrap Demo</a>
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#grid">Grid</a></li>
+          <li class="nav-item"><a class="nav-link" href="#buttons">Buttons</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cards">Cards</a></li>
+          <li class="nav-item"><a class="nav-link" href="#utilities">Utilities</a></li>
+          <li class="nav-item"><a class="nav-link" href="#modal">Modal</a></li>
+          <li class="nav-item"><a class="nav-link" href="#forms">Forms</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO using Bootstrap utilities -->
+  <div class="bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Bootstrap Framework</h1>
+      <p class="lead text-light">
+        Build responsive, mobile-first websites using Bootstrap's pre-built components and utility classes.
+      </p>
+      <a href="#grid" class="btn btn-light btn-lg me-2">Explore Demo</a>
+      <a href="https://getbootstrap.com" target="_blank" class="btn btn-outline-light btn-lg">Docs ↗</a>
+    </div>
+  </div>
+
+  <main class="container my-5">
+
+    <!-- ===== SECTION 1: GRID SYSTEM ===== -->
+    <section id="grid">
+      <h2 class="section-title">1. The Grid System</h2>
+      <p class="text-muted">
+        Bootstrap divides every row into <strong>12 columns</strong>.
+        Use classes like <code>col-6</code> (half), <code>col-4</code> (third), or <code>col-md-3</code>
+        (quarter on medium+ screens). The grid is <strong>responsive by default</strong>.
+      </p>
+
+      <div class="demo-block">
+        <p class="fw-bold mb-3">Resize your browser to see columns stack on mobile:</p>
+
+        <!-- Equal columns -->
+        <p class="text-muted small mb-1">3 equal columns (col-md-4 each):</p>
+        <div class="row g-2 grid-highlight mb-3">
+          <div class="col-md-4">col-md-4</div>
+          <div class="col-md-4">col-md-4</div>
+          <div class="col-md-4">col-md-4</div>
+        </div>
+
+        <!-- Unequal columns -->
+        <p class="text-muted small mb-1">Unequal: sidebar (col-md-3) + main (col-md-9):</p>
+        <div class="row g-2 grid-highlight mb-3">
+          <div class="col-md-3">Sidebar<br>col-md-3</div>
+          <div class="col-md-9">Main Content<br>col-md-9</div>
+        </div>
+
+        <!-- Mixed -->
+        <p class="text-muted small mb-1">Mixed (2 + 4 + 6 = 12):</p>
+        <div class="row g-2 grid-highlight">
+          <div class="col-2">col-2</div>
+          <div class="col-4">col-4</div>
+          <div class="col-6">col-6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: BUTTONS ===== -->
+    <section id="buttons">
+      <h2 class="section-title">2. Buttons & Badges</h2>
+      <p class="text-muted">
+        Bootstrap provides a full set of styled buttons using <code>btn</code> + <code>btn-{colour}</code>.
+        No custom CSS needed.
+      </p>
+      <div class="demo-block">
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-success">Success</button>
+          <button class="btn btn-danger">Danger</button>
+          <button class="btn btn-warning text-dark">Warning</button>
+          <button class="btn btn-info text-dark">Info</button>
+          <button class="btn btn-light border">Light</button>
+          <button class="btn btn-dark">Dark</button>
+        </div>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <button class="btn btn-outline-primary">Outline Primary</button>
+          <button class="btn btn-outline-success">Outline Success</button>
+          <button class="btn btn-outline-danger">Outline Danger</button>
+          <button class="btn btn-sm btn-primary">Small</button>
+          <button class="btn btn-lg btn-primary">Large</button>
+        </div>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-primary">New</span>
+          <span class="badge bg-success">Active</span>
+          <span class="badge bg-danger">Error</span>
+          <span class="badge bg-warning text-dark">Pending</span>
+          <span class="badge rounded-pill bg-info text-dark">Pill Badge</span>
+          <button class="btn btn-primary position-relative">
+            Notifications
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">5</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: CARDS ===== -->
+    <section id="cards">
+      <h2 class="section-title">3. Cards & Layout</h2>
+      <p class="text-muted">
+        Cards are flexible content containers. Combined with the grid, they create responsive layouts automatically.
+      </p>
+      <div class="demo-block">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <span class="badge bg-primary mb-2">HTML</span>
+                <h5 class="card-title">Structure</h5>
+                <p class="card-text text-muted">HTML provides the skeleton of a webpage using semantic tags and elements.</p>
+              </div>
+              <div class="card-footer bg-transparent">
+                <a href="#" class="btn btn-sm btn-outline-primary">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 shadow-sm border-success">
+              <div class="card-body">
+                <span class="badge bg-success mb-2">CSS</span>
+                <h5 class="card-title">Styling</h5>
+                <p class="card-text text-muted">CSS controls the visual appearance — colours, fonts, layouts, and animations.</p>
+              </div>
+              <div class="card-footer bg-transparent">
+                <a href="#" class="btn btn-sm btn-outline-success">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card h-100 shadow-sm border-warning">
+              <div class="card-body">
+                <span class="badge bg-warning text-dark mb-2">JavaScript</span>
+                <h5 class="card-title">Behaviour</h5>
+                <p class="card-text text-muted">JavaScript adds interactivity — responding to user actions, updating the DOM.</p>
+              </div>
+              <div class="card-footer bg-transparent">
+                <a href="#" class="btn btn-sm btn-outline-warning">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: UTILITY CLASSES ===== -->
+    <section id="utilities">
+      <h2 class="section-title">4. Utility Classes</h2>
+      <p class="text-muted">
+        Bootstrap utility classes let you apply spacing, colour, text, flexbox, and more <strong>directly in HTML</strong> without writing CSS.
+      </p>
+      <div class="demo-block">
+        <!-- Spacing utilities -->
+        <p class="fw-bold mb-2">Spacing: <code>m-</code> (margin) and <code>p-</code> (padding):</p>
+        <div class="d-flex gap-2 flex-wrap mb-4">
+          <div class="bg-primary text-white p-1 rounded">p-1</div>
+          <div class="bg-primary text-white p-2 rounded">p-2</div>
+          <div class="bg-primary text-white p-3 rounded">p-3</div>
+          <div class="bg-primary text-white p-4 rounded">p-4</div>
+        </div>
+        <!-- Text utilities -->
+        <p class="fw-bold mb-2">Text utilities:</p>
+        <p class="text-start text-muted mb-1">text-start (default left)</p>
+        <p class="text-center text-primary fw-bold mb-1">text-center + text-primary + fw-bold</p>
+        <p class="text-end text-danger fst-italic mb-3">text-end + text-danger + fst-italic</p>
+        <!-- Alerts -->
+        <p class="fw-bold mb-2">Alerts:</p>
+        <div class="alert alert-success" role="alert">
+          <i class="bi bi-check-circle-fill me-2"></i><strong>Success!</strong> Action completed.
+        </div>
+        <div class="alert alert-warning" role="alert">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i><strong>Warning!</strong> Check your input.
+        </div>
+        <div class="alert alert-danger" role="alert">
+          <i class="bi bi-x-circle-fill me-2"></i><strong>Error!</strong> Something went wrong.
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: MODAL ===== -->
+    <section id="modal">
+      <h2 class="section-title">5. Modal (Popup)</h2>
+      <p class="text-muted">
+        A <strong>Modal</strong> is a dialog box that overlays the page.
+        Bootstrap handles all the show/hide logic via <code>data-bs-toggle="modal"</code>.
+        No JavaScript required!
+      </p>
+      <div class="demo-block">
+        <button type="button" class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#demoModal">
+          <i class="bi bi-window me-1"></i> Open Modal
+        </button>
+      </div>
+    </section>
+
+    <!-- Modal HTML (hidden by default) -->
+    <div class="modal fade" id="demoModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header bg-primary text-white">
+            <h5 class="modal-title"><i class="bi bi-info-circle me-2"></i>Bootstrap Modal</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>This modal was triggered with just one HTML attribute:</p>
+            <code>data-bs-toggle="modal" data-bs-target="#demoModal"</code>
+            <hr/>
+            <p class="mb-0 text-muted">Bootstrap's JavaScript bundle handles everything else automatically.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Confirm</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION 6: FORMS ===== -->
+    <section id="forms">
+      <h2 class="section-title">6. Bootstrap Forms</h2>
+      <p class="text-muted">
+        Bootstrap styles form inputs with <code>form-control</code>, labels with <code>form-label</code>,
+        and wraps them in <code>mb-3</code> for consistent spacing.
+      </p>
+      <div class="demo-block">
+        <form>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">First Name</label>
+              <input type="text" class="form-control" placeholder="Ian"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Last Name</label>
+              <input type="text" class="form-control" placeholder="Gurung"/>
+            </div>
+            <div class="col-12">
+              <label class="form-label fw-semibold">Email</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="ian@email.com"/>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Course</label>
+              <select class="form-select">
+                <option>Full Stack Development</option>
+                <option>Data Science</option>
+                <option>Cyber Security</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw-semibold">Experience Level</label>
+              <div class="d-flex gap-3 pt-1">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="beginner" checked/>
+                  <label class="form-check-label" for="beginner">Beginner</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="level" id="inter"/>
+                  <label class="form-check-label" for="inter">Intermediate</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary w-100" type="submit">
+                <i class="bi bi-send me-1"></i> Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-4">
+    <p class="mb-0">Ian Gurung &mdash; CET138 Full Stack Development Portfolio &mdash; Bootstrap Demo</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle (includes Popper) — required for Modal, Navbar toggle, etc. -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
